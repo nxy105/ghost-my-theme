@@ -1,0 +1,520 @@
+/**************************************************
+
+http://undefinedblog.com
+
+**************************************************/
+
+/* Basic setting */
+html, body{
+  background-color: #fafafa;
+  color: #111;
+  font: 16px/1 "Helvetica Neue",Helvetica,"Lucida Grande","Luxi Sans",Arial;
+  height: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+p{
+  font-weight: normal;
+  font-family: "Hiragino Sans GB", "SimSun", sans-serif;
+}
+
+a{
+  color: #0074D9;
+  text-decoration: none;
+  -webkit-transition: .2s color;
+  transition: .2s color;
+}
+
+.single-article a:visited{
+  color: #7FDBFF;
+}
+
+.content a:hover,
+a:hover{
+  color: #001F3F;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: "Hiragino Sans GB" ,"Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei Mono",LiGothicMed;
+}
+
+h1{
+  font-size: 32px;
+}
+
+h2{
+  font-size: 28px;
+}
+
+h3{
+  font-size: 20px;
+}
+
+h4, h5, h6{
+  font-size: 18px;
+}
+
+p{
+  line-height: 1.6;
+  margin: 26px 0;
+}
+
+ul li,
+ol li{
+  line-height: 1.5;
+}
+
+.clearfix:after{
+  content: '.';
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+code{
+  display: inline-block;
+  margin: 0 2px;
+  border: 1px solid #bbb;
+  background-color: #ddd;
+  border-radius: 3px;
+  padding: 0;
+}
+
+code:before,
+code:after{
+  content: "\00a0";
+  letter-spacing: -0.2em;
+}
+
+p > code{
+  line-height: 1;
+  vertical-align: text-bottom;
+}
+
+pre code{
+  margin: auto;
+  border: none;
+  background-color: inherit;
+  border-radius: 0;
+  white-space: pre;
+  overflow-x: scroll;
+}
+
+pre code:before,
+pre code:after{
+  content: '';
+  display: none;
+}
+
+blockquote{
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+img{
+  max-width: 100%;
+}
+
+::-moz-selection{
+  background: #0074D9;
+  color: #fff;
+}
+
+::selection{
+  background: #0074D9;
+  color: #fff;
+}
+
+/* Header style */
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  border-right: 1px #ddd solid;
+}
+
+.header .logo{
+  height: 80px;
+  padding: 20px 0 30px;
+}
+
+.header .logo h1{
+  margin: 0;
+  text-align: center;
+  font-family: Menlo, Consolas, Monaco, Courier, Droid Sans Mono, monospace;
+}
+
+.header .logo h1 a{
+  color: #111;
+}
+
+.header .nav{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.header .nav li{
+  line-height: 1;
+  list-style: none;
+  width: 100%;
+}
+
+.header .nav a{
+  display: block;
+  position: relative;
+  padding: 12px 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Hiragino Sans GB","Microsoft YaHei","Wenquanyi Micro Hei","WenQuanYi Micro Hei Mono","WenQuanYi Zen Hei","WenQuanYi Zen Hei Mono",LiGothicMed;
+}
+
+.header .nav .active a:before,
+.header .nav .active a:after{
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fafafa;
+  z-index: 1;
+}
+
+.header .nav .active a:before{
+  top: -1px;
+  -webkit-animation: removeToRight .6s ease-out forwards;
+}
+
+.header .nav .active a:after{
+  bottom: -1px;
+  -webkit-animation: removeToLeft .6s ease-out forwards;
+}
+
+.header .nav .active{
+  position: relative;
+  font-weight: 600;
+  border-top: 1px #ddd solid;
+  border-bottom: 1px #ddd solid;
+}
+
+.header .nav .active:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -1px;
+  height: 100%;
+  border-right: 1px #fafafa solid;
+}
+
+.sub-header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  margin-left: 240px;
+  z-index: 9999;
+}
+
+.site-text{
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding-left: 30px;
+  border-bottom: 1px #ddd solid;
+  vertical-align: middle;
+  font: 300 18px/80px 'Helvetica Neue';
+  z-index: 1;
+  background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* Content area */
+.content{
+  position: relative;
+  overflow: hidden;
+  margin-left: 240px;
+  z-index: 2;
+}
+
+.content .article{
+  padding: 15px 30px;
+  max-width: 800px;
+}
+
+.content .articles,
+.content .single-article{
+  padding-top: 80px;
+}
+
+.content .article-wrapper{
+  border-bottom: 1px #ddd solid;
+}
+
+.content .article-wrapper h2{
+  margin: 15px 0;
+}
+
+.content h2 a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.content .date,
+.content .tag{
+  font-size: 14px;
+  color: #aaa;
+  margin-right: 10px;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  width: 240px;
+}
+
+.footer p{
+  font-size: 12px;
+  margin: 5px 0;
+  color: #aaa;
+  line-height: 1;
+}
+
+.pagination{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.content .comment{
+  margin: 20px;
+}
+
+.toc{
+  margin-top: 20px;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.toc a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes tada {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes tada {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  10%, 20% {
+    -webkit-transform: scale(0.9) rotate(-3deg);
+    transform: scale(0.9) rotate(-3deg);
+  }
+
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale(1.1) rotate(3deg);
+    transform: scale(1.1) rotate(3deg);
+  }
+
+  40%, 60%, 80% {
+    -webkit-transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.1) rotate(-3deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+  }
+}
+
+@-webkit-keyframes removeToRight{
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes removeToLeft{
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -100%;
+  }
+}
+
+.error-text{
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  font-size: 80px;
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 1px 1px #fff;
+  -webkit-animation-name: tada;
+  animation-name: tada;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.trace{
+  position: absolute;
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  bottom: 0;
+  opacity: 0;
+  -webkit-filter: opacity(alpha=0);
+  filter: opacity(alpha=0);
+}
+
+.trace:hover{
+  opacity: 1;
+  -webkit-filter: opacity(alpha=100);
+  filter: opacity(alpha=100);
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px),
+screen and (max-width: 499px) {
+  h1{
+    font-size: 28px;
+  }
+
+  .header{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    border-right: none;
+  }
+
+  .header .nav:after{
+    content: '.';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+  }
+
+  .search{
+    display: none;
+  }
+
+  .header .nav li{
+    width: 50.0000%;
+    float: left;
+    border-bottom: 1px #ddd solid;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .header .nav .active{
+    border: 1px #ddd solid;
+    border-bottom: 1px #fafafa solid;
+  }
+
+  .header .nav .active:after{
+    right: 0;
+  }
+
+  .sub-header{
+    display: none;
+  }
+
+  .content{
+    width: 100%;
+    margin: 0;
+  }
+
+  .content .articles{
+    padding-top: 0;
+  }
+
+  .content .single-article,
+  .content .article{
+    padding: 10px 15px;
+  }
+
+  .content .single-article h1{
+    margin: 5px 0 10px;
+  }
+
+  .footer{
+    position: relative;
+    width: 100%;
+    margin: 30px 0 15px;
+  }
+
+  .error-text{
+    position: relative;
+    top: 20px;
+    left: 0;
+    text-align: center;
+    font-size: 36px;
+  }
+
+  .generated-nav{
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{#if post}}{{meta_title}} - {{@blog.title}}{{else}}{{@blog.title}} - {{@blog.description}}{{/if}}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{meta_description}}">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="{{asset "css/main.min.css"}}">
+  {{ghost_head}}
+</head>
+<body>
+  <div class="container clearfix">
+    <!-- header -->
+    <div class="header">
+      <div class="logo">
+        <h1><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+      </div>
+      <ul class="nav"><li><a href="/">Home</a><li><a href="/about/">About Me</a></ul>
+    </div>
+
+    <!-- subheader -->
+    <div class="sub-header">
+      <h4 class="site-text">{{@blog.description}}</h4>
+    </div>
+
+    <!-- content -->
+    <div class="content">
+      {{{body}}}
+    </div>
+  </div>
+
+  <!-- footer -->
+  <div class="footer">
+    <p class="copyright">&copy; 2014 {{@blog.title}}</p>
+    <p class="credit">Powered by <a href="https://ghost.org">Ghost</a></p>
+    <p class="credit">Theme by <a href="http://undefinedblog.com">undefinedblog</a></p>
+  </div>
+
+  <script type="text/javascript">
+    {{> common}}
+
+    
+
+    {{> syntaxHighlight}}
+  </script>
+</body>
+</html>
